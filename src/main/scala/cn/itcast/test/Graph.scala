@@ -8,7 +8,7 @@ object Graph {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder()
       .appName("pmt json etl")
-      .master("local[6]")
+      .master("local[6]").config("spark.driver.host", "localhost")
       .getOrCreate()
 
     import spark.implicits._
